@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            <h1>💰 Expense Tracker</h1>
+            <p>Track your daily expenses and manage your budget</p>
+        </header>
+
+        <!-- Summary Section -->
+        <div class="summary-section">
+            <div class="summary-card">
+                <h3>Total Expenses</h3>
+                <div class="total-amount" id="totalAmount">$0.00</div>
+            </div>
+            <div class="summary-card">
+                <h3>Total Entries</h3>
+                <div class="total-count" id="totalCount">0</div>
+            </div>
+        </div>
+
+        <!-- Add Expense Form -->
+        <div class="form-section">
+            <h2>Add New Expense</h2>
+            <form id="expenseForm">
+                <div class="form-group">
+                    <label for="expenseName">Expense Name</label>
+                    <input type="text" id="expenseName" placeholder="e.g., Coffee, Groceries, Gas" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="expenseAmount">Amount</label>
+                    <input type="number" id="expenseAmount" step="0.01" min="0" placeholder="0.00" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="expenseCurrency">Currency</label>
+                    <select id="expenseCurrency" required>
+                        <option value="USD">🇺🇸 USD - US Dollar</option>
+                        <option value="INR">🇮🇳 INR - Indian Rupee</option>
+                        <option value="EUR">🇪🇺 EUR - Euro</option>
+                        <option value="GBP">🇬🇧 GBP - British Pound</option>
+                        <option value="JPY">🇯🇵 JPY - Japanese Yen</option>
+                        <option value="CAD">🇨🇦 CAD - Canadian Dollar</option>
+                        <option value="AUD">🇦🇺 AUD - Australian Dollar</option>
+                        <option value="CHF">🇨🇭 CHF - Swiss Franc</option>
+                        <option value="CNY">🇨🇳 CNY - Chinese Yuan</option>
+                        <option value="SGD">🇸🇬 SGD - Singapore Dollar</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="expenseCategory">Category</label>
+                    <select id="expenseCategory" required>
+                        <option value="">Select Category</option>
+                        <option value="Food & Dining">🍽️ Food & Dining</option>
+                        <option value="Transportation">🚗 Transportation</option>
+                        <option value="Shopping">🛍️ Shopping</option>
+                        <option value="Entertainment">🎬 Entertainment</option>
+                        <option value="Bills & Utilities">💡 Bills & Utilities</option>
+                        <option value="Healthcare">🏥 Healthcare</option>
+                        <option value="Education">📚 Education</option>
+                        <option value="Travel">✈️ Travel</option>
+                        <option value="Other">📝 Other</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="add-btn">Add Expense</button>
+            </form>
+        </div>
+
+        <!-- Expenses List Section -->
+        <div class="expenses-section">
+            <div class="section-header">
+                <h2>Recent Expenses</h2>
+                <button id="clearAllBtn" class="clear-btn">Clear All</button>
+            </div>
+            
+            <!-- No expenses message -->
+            <div id="noExpensesMsg" class="no-expenses">
+                <p>No expenses recorded yet. Add your first expense above!</p>
+            </div>
+            
+            <!-- Expenses table -->
+            <div class="table-container" id="expensesTable" style="display: none;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>Amount</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="expensesTableBody">
+                        <!-- Expenses will be dynamically added here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
